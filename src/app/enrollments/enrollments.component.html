@@ -1,0 +1,26 @@
+<div>
+    <button (click)="showEnrollmentInfo()">Show Enrollment</button>
+    <h3>Enrolmment Count: {{myEnrollmentData.enrollments.length}}</h3>
+    <div *ngIf="myEnrollmentData.showEnrollments">
+
+        <table class="table table-light table-bordered">
+            <thead class="thead-dark">
+                <th> Lead Id</th>
+                <th> SId</th>
+                <th> Name </th>
+                <th> Course </th>
+                <th> Fee paid </th>
+                <th> Fee bal </th>
+            </thead>
+            <tbody *ngFor="let enrollment of myEnrollmentData.enrollments">
+                <td>{{enrollment.leadId}}</td>
+                <td>{{enrollment.sid}}</td>
+                <td>{{enrollment.sname}}</td>
+                <td>{{enrollment.course}}</td>
+                <td>{{enrollment.feepaid}}</td>
+                <td>{{enrollment.feebal}}</td>
+                <td> <button (click)="removeEnrollment(enrollment.leadId)">X</button></td>
+            </tbody>
+        </table>
+    </div>
+</div>

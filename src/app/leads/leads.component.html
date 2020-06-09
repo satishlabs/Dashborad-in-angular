@@ -1,0 +1,26 @@
+<div>
+    <button (click)="showLeadsInfo()">Show Leads</button>
+    <h3> Today's Lead Count : {{ myLeadsData.leads.length}}</h3>
+    <div *ngIf="myLeadsData.showLeads">
+
+        <table class="table table-light table-bordered">
+            <thead class="thead-dark">
+                <th> Lead Id</th>
+                <th> Name </th>
+                <th> Email </th>
+                <th> Phone </th>
+                <th> Course </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mylead of myLeadsData.leads">
+                    <td> {{ mylead.leadId}}</td>
+                    <td> {{ mylead.name}}</td>
+                    <td> {{ mylead.email}}</td>
+                    <td> {{ mylead.phone}}</td>
+                    <td> {{ mylead.course}}</td>
+                    <td> <button (click)="removeLead(mylead.leadId)">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
